@@ -24,26 +24,35 @@ class MalugaDatabase {
   //CRIAÇÃO DAS TABELAS DO BANCO
   Future _createDB(Database db, int version) async{
     await db.execute(
-      
-      /*'''
+      '''
       CREATE TABLE IF NOT EXISTS profile
       (
+        id_profile INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
+        nif TEXT NOT NULL,
         location TEXT NOT NULL,
-        id_number TEXT NOT NULL, 
-        classification Double(10) NOT NULL
+        id_number TEXT NOT NULL UNIQUE,
+        type TEXT NOT NULL CHECK(type IN ('proprietario', 'alugador', 'kilapeiro')),
+        classification DOUBLE(10,2) NOT NULL
       );
       '''
       '''
       CREATE TABLE IF NOT EXISTS alugador
       (
         name TEXT NOT NULL,
+        nif TEXT NOT NULL,
         location TEXT NOT NULL,
         alugos INTEGER NOT NULL,
-        id_number TEXT NOT NULL, 
+        phone_number TEXT NOT NULL, 
         classification Double(10) NOT NULL
       );
-      '''*/
+      CREATE TABLE IF NOT EXISTS notifications (
+        id_notification INTEGER PRIMARY KEY AUTOINCREMENT,
+        type TEXT NOT NULL CHECK(type IN ('alugo', 'kilapi')),
+        message TEXT NOT NULL,
+        date_sent TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      );
+      '''
       '''
       CREATE TABLE IF NOT EXISTS materials
       (
@@ -51,9 +60,19 @@ class MalugaDatabase {
         name TEXT NOT NULL,
         description TEXT NOT NULL,
         quantity INT NOT NULL,
-        status TEXT NOT NULL,
+        status TEXT NOT NULL CHECK(status IN ('novo', 'semi-novo', 'antigo')),
         price DECIMAL(10, 2) NOT NULL
       );
+      '''
+  	  '''
+      CREATE TABLE IF NOT EXISTS historico
+      (
+        id_historico INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        data DATE NOT NULL,
+        type TEXT NOT NULL CHECK(type IN ('alugo', 'kilapi')),
+        total DOUBLE (10,2),
+      )
       '''
       '''
       CREATE TABLE IF NOT EXISTS alugos
@@ -61,14 +80,15 @@ class MalugaDatabase {
         id_alugo INTEGER PRIMARY KEY AUTOINCREMENT,
         id_material INTEGER NOT NULL,
         name_alugador TEXT NOT NULL,
+        nif_alugador TEXT NOT NULL,
         contact_alugador TEXT NOT NULL,
-        name_material TEXT NOT NULL,
         quantity INTEGER NOT NULL,
         date_alugo DATE NOT NULL,
         date_return DATE NOT NULL,
-        total_alugo DOUBLE (10,2),
+        total_alugo DECIMAL(10,2) NOT NULL,
+        status TEXT NOT NULL CHECK(status IN ('ativo', 'atrasado', 'concluido')),
+        contract_image TEXT, -- Caminho da imagem do contrato
         FOREIGN KEY (id_material) REFERENCES materials(id_material)
-        FOREIGN KEY (name_material) REFERENCES materials(name)
       );
       '''
     );

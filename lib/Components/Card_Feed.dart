@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_/Components/Colors.dart';
 
 class CardFeed extends StatelessWidget {
   final int price;
@@ -19,7 +20,7 @@ class CardFeed extends StatelessWidget {
             border: Border.all(
               width: 2,
               style: BorderStyle.solid,
-              color: Colors.blue,
+              color: BaseColor,
             ),
             borderRadius: BorderRadius.circular(20)
           ),

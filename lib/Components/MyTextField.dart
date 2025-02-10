@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 class Mytextfield extends StatelessWidget {
   final String hintText;
   final keyboardtype;
-  final controller;
+  final Controller;
   
-  const Mytextfield({super.key, required this.hintText, this.keyboardtype, this.controller});
+  const Mytextfield({super.key, required this.hintText, this.keyboardtype, this.Controller});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: TextField(
-        keyboardAppearance: keyboardtype,
-        controller: controller,
+        keyboardType: keyboardtype,
+        controller: Controller,
         decoration: InputDecoration(
           hintText: hintText,
         ),

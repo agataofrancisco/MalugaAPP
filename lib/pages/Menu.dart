@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_/Components/Colors.dart';
 import 'package:flutter_/pages/ListThing.dart';
 import 'package:flutter_/pages/PendingPage.dart';
 import 'package:flutter_/pages/ProfilePage.dart';
@@ -12,7 +13,7 @@ class Menu extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: BaseColor,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -20,15 +21,15 @@ class Menu extends StatelessWidget {
                 "Maluga",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white
+                  color: ForegroundColor
                 ),
               ),
               Container(child: Row(
                 children: [
-                  ElevatedButton.icon(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (build) => ProfilePage()));}, label: Icon(Icons.person, color: Colors.blue,)),
+                  ElevatedButton.icon(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (build) => ProfilePage()));}, label: Icon(Icons.person, color: BaseColor,)),
                   Padding(
                     padding: const EdgeInsets.only(left: 2),
-                    child: IconButton(onPressed: (){}, icon: Icon(Icons.notifications, color: Colors.white,)),
+                    child: IconButton(onPressed: (){}, icon: Icon(Icons.notifications, color: ForegroundColor,)),
                   )
                 ],
               )),
@@ -38,16 +39,16 @@ class Menu extends StatelessWidget {
           bottom: TabBar(
             tabs:<Widget>[
                 Center(
-                  child: Icon(Icons.list_outlined,color: Colors.white,size: 30,)
+                  child: Icon(Icons.list_outlined,color: ForegroundColor,size: 30,)
                 ),
                 /*Center(
-                  child: Icon(Icons.note_add_outlined,color: Colors.white,size: 30,)
+                  child: Icon(Icons.note_add_outlined,color: ForegroundColor,size: 30,)
                 ),*/
                 Center(
-                  child: Icon(Icons.pending_outlined,color: Colors.white,size: 30,)
+                  child: Icon(Icons.pending_outlined,color: ForegroundColor,size: 30,)
                 ),
                 /*Center(
-                  child: Icon(Icons.feed_outlined,color: Colors.white,size: 30,)
+                  child: Icon(Icons.feed_outlined,color: ForegroundColor,size: 30,)
                 ),*/
           ]),
         ),

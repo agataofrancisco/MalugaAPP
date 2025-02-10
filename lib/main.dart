@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_/Components/Colors.dart';
 import 'package:flutter_/pages/Menu.dart';
 
 void main(){
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const Menu(),
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: BaseColor),
     );
   }
 }

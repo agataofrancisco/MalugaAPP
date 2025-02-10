@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_/Components/Colors.dart';
 
 class MylistTile extends StatelessWidget {
   final String titulo;
@@ -15,7 +16,7 @@ class MylistTile extends StatelessWidget {
                     padding: const EdgeInsets.all(3.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: BaseColor,
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child:
@@ -24,7 +25,7 @@ class MylistTile extends StatelessWidget {
                           titulo,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: ForegroundColor,
                           ),
                         ),
                         subtitle: Text(
@@ -36,7 +37,7 @@ class MylistTile extends StatelessWidget {
                         trailing: Text(
                           trallling,
                           style: TextStyle(
-                            color: Colors.white
+                            color: ForegroundColor
                           ),
                         ),
                       ),

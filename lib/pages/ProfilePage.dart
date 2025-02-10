@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_/Components/Colors.dart';
 import 'package:flutter_/Components/MyElevatedButton.dart';
 import 'package:flutter_/pages/AddThing.dart';
 
@@ -13,10 +14,10 @@ class ProfilePage extends StatelessWidget {
           "Perfil",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.white
+            color: ForegroundColor
           ),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: BaseColor,
       ),
       body: Center(
         child: Column(

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_/Components/Colors.dart';
 import 'package:flutter_/Components/MyElevatedButton.dart';
 import 'package:flutter_/Components/MyTextField.dart';
 import 'package:flutter_/db/Database.dart';
@@ -21,7 +22,7 @@ class _AddThingPageState extends State<AddThingPage> {
     TextEditingController pricocontroller = TextEditingController();
     TextEditingController  quantitycontroller = TextEditingController();
 
-    Future <void> _AddMaterial() async{
+    void _AddMaterial() async{
       final db = await MalugaDatabase.instance;
       //db.printTableData('materials');
       //PREPARING ALL DATA TO BE SENT TO THE DB
@@ -78,21 +79,21 @@ class _AddThingPageState extends State<AddThingPage> {
         title: Text(
           "Adicionar Material",
           style: TextStyle(
-            color: Colors.white,
+            color: ForegroundColor,
             fontWeight: FontWeight.bold
           ),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: BaseColor,
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              Mytextfield(hintText: "nome", controller: namecontroller),
-              Mytextfield(hintText: "Descrição", controller: descriptioncontroller),
-              Mytextfield(hintText: "Quantidade", controller: quantitycontroller),
-              Mytextfield(hintText: "Estado", controller: statuscontroller),
-              Mytextfield(hintText: "Preço", controller: pricocontroller),
+              Mytextfield(hintText: "nome", Controller: namecontroller),
+              Mytextfield(hintText: "Descrição", Controller: descriptioncontroller),
+              Mytextfield(hintText: "Quantidade", Controller: quantitycontroller),
+              Mytextfield(hintText: "Estado", Controller: statuscontroller),
+              Mytextfield(hintText: "Preço", Controller: pricocontroller),
               MyElevatedbutton(
                 text: "Adicionar",
                 action: (){
